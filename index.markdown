@@ -8,7 +8,7 @@ layout: page
 <div style="text-align: center;">
 
 # Tipping points in dynamical systems
-# [[code]](https://github.com/DrPrettyman/PhD_Project) [[docs]](html/index.html)  
+# [[code]](https://github.com/DrPrettyman/PhD_Project) [[docs]](docs/html/index.html)  
 </div>
 
 Tipping events in dynamical systems have been studied across many applications,

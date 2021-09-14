@@ -21,9 +21,9 @@
 title: PhD documentation
 email: j.prettyman@icloud.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  My PhD project at the University of Reading resulted in a load of code which is
+  hosted on GitHub. I thought I may as well make a gh-pages site which links to the
+  repository and also hosts the documentation.
 baseurl: "phd_docs" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
