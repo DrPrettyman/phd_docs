@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>Plot helper &#8212; PhD Thesis code 3.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tipping point techniques" href="toc2_techniques.html" />
+    <link rel="prev" title="Figures from chapter 2" href="figures_c2.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="toc2_techniques.html" title="Tipping point techniques"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="figures_c2.html" title="Figures from chapter 2"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PhD Thesis code 3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="toc1_reproduce_experiments.html" accesskey="U">Reproducing experiments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Plot helper</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-plot_helper">
+<span id="plot-helper"></span><h1>Plot helper<a class="headerlink" href="#module-plot_helper" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the class definition <a class="reference internal" href="#plot_helper.ThesisPlot" title="plot_helper.ThesisPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThesisPlot</span></code></a>.</p>
+<p>The <a class="reference internal" href="#plot_helper.ThesisPlot" title="plot_helper.ThesisPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThesisPlot</span></code></a> class accesses matplotlib and allows the creation of figures in a standardised style for
+consistency throughout the thesis.</p>
+<p>The layout of subplots can be defined by the user with the pattern property, for example the pattern <code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">2],</span> <span class="pre">[0]]</span></code>
+defines two subplots on the top row, with “very small” spacing between, and a single plot on the bottom row.</p>
+<p>The line styles are standardised and can be chosen from the keys in
+the dictionary <code class="xref py py-func docutils literal notranslate"><span class="pre">ThesisPlot.standard_line_dict()</span></code>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">plot_helper.</span></span><span class="sig-name descname"><span class="pre">ThesisPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_number</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pattern_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class initialises a figure with subplots side-by-side and includes
+helper functions for plotting.
+The original pyplot functionality can be accessed directly through
+the object variables ‘fig’, ‘ax’, as in
+p = Plot1by2()
+p.ax[0].set_xlim(0, 10)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.auto_share_ylims">
+<span class="sig-name descname"><span class="pre">auto_share_ylims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row_no</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.auto_share_ylims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls <code class="docutils literal notranslate"><span class="pre">share_ylims</span></code> for all axes which are positioned in a vertical stack in the specified row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>row_no</strong> – The index of the row in which to perform the sharing of <em>y</em> axes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.axes_labels">
+<span class="sig-name descname"><span class="pre">axes_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes_no</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.axes_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the <em>x</em> and <em>y</em> axis labels for the specified subplot axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axes_no</strong> – </p></li>
+<li><p><strong>xlabel</strong> – </p></li>
+<li><p><strong>ylabel</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.legend">
+<span class="sig-name descname"><span class="pre">legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes_no</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.legend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turs on the legend for the specified subplot axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>axes_no</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_no</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'line1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots a line onto a set of axes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The <em>x</em> variable</p></li>
+<li><p><strong>y</strong> – The <em>y</em> variable</p></li>
+<li><p><strong>axes_no</strong> – Axes indentifier for multiple-subplot figures</p></li>
+<li><p><strong>line_style</strong> – Standardised line style as defined by the dictionary <code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_line_dict</span></code></p></li>
+<li><p><strong>label</strong> – Label for use in legend</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.print_figure_properties">
+<span class="sig-name descname"><span class="pre">print_figure_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.print_figure_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the figure properties to the console.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.print_prep">
+<span class="sig-name descname"><span class="pre">print_prep</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.print_prep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the figure for display or save by cleaning up
+the axes labels and tick labels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.save_figure">
+<span class="sig-name descname"><span class="pre">save_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig_format</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'../../Desktop/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.save_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the figure in the specified format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig_format</strong> – File extension specifying the format.</p></li>
+<li><p><strong>path</strong> – Path to saved file.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.set_transparent_false">
+<span class="sig-name descname"><span class="pre">set_transparent_false</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.set_transparent_false" title="Permalink to this definition">¶</a></dt>
+<dd><p>transparency must be set to False by calling this method before plotting if the figure is
+intended to be saved in a format that does not support transparency (e.g. eps)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.share_xlims">
+<span class="sig-name descname"><span class="pre">share_xlims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.share_xlims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the <em>x</em> limits for all axes in <code class="docutils literal notranslate"><span class="pre">axes</span></code> (given as a list) so that the <em>x</em> axes are aligned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>axes</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.share_ylims">
+<span class="sig-name descname"><span class="pre">share_ylims</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.share_ylims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the <em>y</em> limits for all axes in <code class="docutils literal notranslate"><span class="pre">axes</span></code> (given as a list) so that the <em>y</em> axes are aligned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>axes</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.show()</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_helper.ThesisPlot.v_dash">
+<span class="sig-name descname"><span class="pre">v_dash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axes_no</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_coord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">markers</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.ThesisPlot.v_dash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws a vertical line at the specified <em>x</em> coordinate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axes_no</strong> – Axes indentifier for multiple-subplot figures.</p></li>
+<li><p><strong>x_coord</strong> – The position at which to draw the vertical line.</p></li>
+<li><p><strong>markers</strong> – When <code class="docutils literal notranslate"><span class="pre">True</span></code> markers will be plotted on the line at the top and bottom edges of the subplot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="plot_helper.figure_properties">
+<span class="sig-prename descclassname"><span class="pre">plot_helper.</span></span><span class="sig-name descname"><span class="pre">figure_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_gap_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'large'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.figure_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a subplot pattern and returns the positions of the subplots with
+standardised padding around the subplots.
+This is called by methods in the <a class="reference internal" href="#plot_helper.ThesisPlot" title="plot_helper.ThesisPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">ThesisPlot</span></code></a> class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pattern</strong> – The pattern parameter is in top-to-bottom order.
+The pattern <code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">2],</span> <span class="pre">[0]]</span></code> defines two subplots on the top
+row, with vsmall spacing between, and a single plot on the
+bottom row.</p></li>
+<li><p><strong>aspect</strong> – The ratio of width to height.</p></li>
+<li><p><strong>vertical_gap_size</strong> – The vertical gaps between axes on different rows can be
+adjusted with kwarg <code class="docutils literal notranslate"><span class="pre">vertical_gap_size</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(fig_width, fig_height), no_plots, axes_positions, axes_layout</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="plot_helper.init_standard_line_dict">
+<span class="sig-prename descclassname"><span class="pre">plot_helper.</span></span><span class="sig-name descname"><span class="pre">init_standard_line_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transparent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_helper.init_standard_line_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a standard dictionary of axes.plot kwargs so that style is
+consistent throughout all plots.</p>
+<p>The principal lines are three grayscale lines with width 1.2: <code class="docutils literal notranslate"><span class="pre">'line1'</span></code>, <code class="docutils literal notranslate"><span class="pre">'line2'</span></code> and <code class="docutils literal notranslate"><span class="pre">'line3'</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>transparent</strong> – Some standard lines are transparent but the transparency is set to 1 for all lines
+if <code class="docutils literal notranslate"><span class="pre">transparent=False</span></code>. This is useful for saving figures in formats that do not
+support transparency.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="figures_c2.html"
+                        title="previous chapter">Figures from chapter 2</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="toc2_techniques.html"
+                        title="next chapter">Tipping point techniques</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/plot_helper.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="toc2_techniques.html" title="Tipping point techniques"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="figures_c2.html" title="Figures from chapter 2"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PhD Thesis code 3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="toc1_reproduce_experiments.html" >Reproducing experiments</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Plot helper</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Joshua Prettyman.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>
