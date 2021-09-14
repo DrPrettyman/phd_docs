@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>Noise methods &#8212; PhD Thesis code 3.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Numerical methods" href="numerical_methods.html" />
+    <link rel="prev" title="Tipping point techniques" href="toc2_techniques.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="numerical_methods.html" title="Numerical methods"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="toc2_techniques.html" title="Tipping point techniques"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PhD Thesis code 3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="toc2_techniques.html" accesskey="U">Tipping point techniques</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Noise methods</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-noise_methods">
+<span id="noise-methods"></span><h1>Noise methods<a class="headerlink" href="#module-noise_methods" title="Permalink to this headline">¶</a></h1>
+<p>The module <code class="docutils literal notranslate"><span class="pre">noise_methods</span></code> provides various functions for
+generating stochastic processes or noise signals.</p>
+<dl class="simple">
+<dt>Includes:</dt><dd><ul class="simple">
+<li><p>White noise</p></li>
+<li><p>Random walk</p></li>
+<li><p>The AR(1) model (autoregressive model with lag 1)
+commonly used to model a system undergoing Critical Slowing Down</p></li>
+<li><p>The AR(63) model
+Used to model noise of varying colour</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="noise_methods.ar1">
+<span class="sig-prename descclassname"><span class="pre">noise_methods.</span></span><span class="sig-name descname"><span class="pre">ar1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#noise_methods.ar1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an AR(1) signal of length <code class="docutils literal notranslate"><span class="pre">n</span></code> with autoregressive parameter <code class="docutils literal notranslate"><span class="pre">mu</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – Length og the series</p></li>
+<li><p><strong>mu</strong> – Autoregressive parameter <span class="math notranslate nohighlight">\(\mu\)</span>. Defaults to 1.0 giving a random walk</p></li>
+<li><p><strong>eta</strong> – Standard deviation of noise process, defaults to 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AR(1) signal of length <code class="docutils literal notranslate"><span class="pre">n</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="toc2_techniques.html"
+                        title="previous chapter">Tipping point techniques</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="numerical_methods.html"
+                        title="next chapter">Numerical methods</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/noise_methods.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="numerical_methods.html" title="Numerical methods"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="toc2_techniques.html" title="Tipping point techniques"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PhD Thesis code 3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="toc2_techniques.html" >Tipping point techniques</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Noise methods</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Joshua Prettyman.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.1.
+    </div>
+  </body>
+</html>
