@@ -9,7 +9,7 @@ layout: page
 
 <h1>Tipping points in dynamical systems</h1>
 <h1><a href="https://github.com/DrPrettyman/PhD_Project">[code]</a> 
-<a href="docs/html/index.html">[docs]</a>
+<a href="_site/docs/html/index.html">[docs]</a>
 </h1>
 </div>
 
