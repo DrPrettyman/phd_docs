@@ -13,6 +13,7 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Scaling methods" href="scaling_methods.html" />
@@ -46,6 +47,8 @@
             
   <section id="module-numerical_methods">
 <span id="numerical-methods"></span><h1>Numerical methods<a class="headerlink" href="#module-numerical_methods" title="Permalink to this headline">¶</a></h1>
+<p>The module <code class="docutils literal notranslate"><span class="pre">numerical_methods</span></code> provides the Euler_Maruyama method and the Milstein method
+to integrate a stochastic equation of the form <span class="math notranslate nohighlight">\(dZ = a(Z)dt + \sigma dW\)</span></p>
 <dl class="py function">
 <dt class="sig sig-object py" id="numerical_methods.dW">
 <span class="sig-prename descclassname"><span class="pre">numerical_methods.</span></span><span class="sig-name descname"><span class="pre">dW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numerical_methods.dW" title="Permalink to this definition">¶</a></dt>
@@ -53,22 +56,55 @@
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="numerical_methods.milstein_method">
-<span class="sig-prename descclassname"><span class="pre">numerical_methods.</span></span><span class="sig-name descname"><span class="pre">milstein_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-</span> <span class="pre">10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numerical_methods.milstein_method" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="numerical_methods.eulermaruyama">
+<span class="sig-prename descclassname"><span class="pre">numerical_methods.</span></span><span class="sig-name descname"><span class="pre">eulermaruyama</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">(-</span> <span class="pre">10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numerical_methods.eulermaruyama" title="Permalink to this definition">¶</a></dt>
 <dd><p>Integrates a stochastic equation of the form
-dZ = a(Z)dt + b(Z)dW
-:param a: function of t and z returning a single value
-:param b: function of t and z returning a single value
-:param z_0:
-:param t_0:
-:param t_end:
-:param n:
-:param ensemble_size:
-:param radius:
-:return: ts: time variable: n x 1 numpy array</p>
-<blockquote>
-<div><p>ys: integrated time series: n x ensemble_size numpy array</p>
-</div></blockquote>
+<span class="math notranslate nohighlight">\(dZ = a(Z)dt + \sigma dW\)</span> according to the Euler-Maruyama method</p>
+<p>Returns the time variable <code class="docutils literal notranslate"><span class="pre">ts</span></code> and the integrated series <code class="docutils literal notranslate"><span class="pre">ys</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – function of t and z returning a single value</p></li>
+<li><p><strong>sigma</strong> – standard deviation of stochastic noise</p></li>
+<li><p><strong>z_0</strong> – initial condition in z</p></li>
+<li><p><strong>t_0</strong> – start time</p></li>
+<li><p><strong>t_end</strong> – end time</p></li>
+<li><p><strong>n</strong> – length of output. The integration time delta is therefore defined as <code class="docutils literal notranslate"><span class="pre">(t_end</span> <span class="pre">-</span> <span class="pre">t_0)</span> <span class="pre">/</span> <span class="pre">n</span></code></p></li>
+<li><p><strong>ensemble_size</strong> – for ensemble size <span class="math notranslate nohighlight">\(m\)</span> the output <code class="docutils literal notranslate"><span class="pre">ys</span></code> will be a <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(m\)</span> array</p></li>
+<li><p><strong>radius</strong> – defines a range constraining the integration. The integration stops if `
+<cite>y &lt; radius[0]`</cite> or <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&gt;</span> <span class="pre">radius[1]</span></code> in order to prevent blow-up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>: ts, ys``</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="numerical_methods.milstein_method">
+<span class="sig-prename descclassname"><span class="pre">numerical_methods.</span></span><span class="sig-name descname"><span class="pre">milstein_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_0</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">(-</span> <span class="pre">10,</span> <span class="pre">10)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#numerical_methods.milstein_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integrates a stochastic equation of the form
+<span class="math notranslate nohighlight">\(dZ = a(Z)dt + b(Z)dW\)</span> according to the Milstein method</p>
+<p>Returns the time variable <code class="docutils literal notranslate"><span class="pre">ts</span></code> and the integrated series <code class="docutils literal notranslate"><span class="pre">ys</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – function of t and z returning a single value</p></li>
+<li><p><strong>b</strong> – function of t and z returning a single value</p></li>
+<li><p><strong>z_0</strong> – initial condition in z</p></li>
+<li><p><strong>t_0</strong> – start time</p></li>
+<li><p><strong>t_end</strong> – end time</p></li>
+<li><p><strong>n</strong> – length of output. The integration time delta is therefore defined as <code class="docutils literal notranslate"><span class="pre">(t_end</span> <span class="pre">-</span> <span class="pre">t_0)</span> <span class="pre">/</span> <span class="pre">n</span></code></p></li>
+<li><p><strong>ensemble_size</strong> – for ensemble size <span class="math notranslate nohighlight">\(m\)</span> the output <code class="docutils literal notranslate"><span class="pre">ys</span></code> will be a <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(m\)</span> array</p></li>
+<li><p><strong>radius</strong> – defines a range constraining the integration. The integration stops if `
+<cite>y &lt; radius[0]`</cite> or <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">&gt;</span> <span class="pre">radius[1]</span></code> in order to prevent blow-up</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>: ts, ys``</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
